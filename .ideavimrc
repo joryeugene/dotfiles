@@ -1,0 +1,75 @@
+" Source your .vimrc
+" source ~/.vimrc
+
+" Set space as leader key
+let mapleader = " "
+
+" General settings
+set scrolloff=5
+set incsearch
+set showmode
+set number
+set relativenumber
+set clipboard+=unnamed
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+" Enable plugins
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'easymotion/vim-easymotion'
+
+" Plugin settings
+set easymotion
+set exchange
+set ideajoin
+set ideastatusicon=gray
+
+" Key mappings
+" Commentary
+noremap <leader>/ :Commentary<cr>
+
+" EasyMotion
+map <leader>w <Plug>(easymotion-w)
+
+" IDE actions
+map <leader>ru <Action>(Run)
+map <leader>rn <Action>(RenameElement)
+map <leader>de <Action>(Debug)
+map <leader>db <Action>(ToggleLineBreakpoint)
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>gi <Action>(GotoImplementation)
+map <leader>fu <Action>(FindUsages)
+map <leader>ff <Action>(GotoFile)
+map <leader>fc <Action>(GotoClass)
+map <leader>fs <Action>(GotoSymbol)
+map <leader>z <Action>(ToggleDistractionFreeMode)
+map <leader>x <Action>(CloseEditor)
+map <leader>s <Action>(SelectInProjectView)
+map <leader>a <Action>(Annotate)
+map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+map <leader>o <Action>(FileStructurePopup)
+map <S-Space> <Action>(GotoNextError)
+
+" Reformat current line
+map <leader>l V<Action>(ReformatCode)
+
+" Navigation
+map <C-o> <Action>(Back)
+map <C-i> <Action>(Forward)
+
+" Move to beginning/end of line
+nnoremap H ^
+nnoremap L $
+
+" Move selected lines up/down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Redo
+map U <C-R>
+
+" Quick edit and reload of .ideavimrc
+nnoremap <leader>vv :e ~/.ideavimrc<CR>
+nnoremap <leader>vr :action IdeaVim.ReloadVimRc.reload<CR>
