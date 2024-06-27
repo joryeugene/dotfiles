@@ -17,5 +17,5 @@ This repository houses my personal .ideavimrc configuration for IdeaVim, enhanci
   
     - macOS/Linux:
     ```Bash
-    ln -s [PATH_TO_DOTFILES]/.ideavimrc ~/.ideavimrc
+    ln [PATH_TO_DOTFILES]/.ideavimrc ~/.ideavimrc
     ```
