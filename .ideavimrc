@@ -19,6 +19,12 @@ set commentary
 set highlightedyank
 set exchange
 set multiple-cursors
+set which-key
+
+" Disable timeout or increase timeout length
+set notimeout
+" Alternatively, you can use:
+" set timeoutlen=5000
 
 " Key mappings
 " Commentary
@@ -44,11 +50,11 @@ map <leader>o <Action>(FileStructurePopup)
 " Reformat current line
 map <leader>l V<Action>(ReformatCode)
 
-
+" Navigation
 map <C-o> <Action>(Back)
 map <C-i> <Action>(Forward)
 
-
+" Move to beginning/end of line
 nnoremap H ^
 nnoremap L $
 
