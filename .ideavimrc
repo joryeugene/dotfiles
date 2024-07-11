@@ -12,8 +12,7 @@ set ignorecase
 set smartcase
 set ideajoin
 
-" Enable plugins
-set easymotion
+" Enable IdeaVim plugins
 set surround
 set commentary
 set highlightedyank
@@ -21,17 +20,12 @@ set exchange
 set multiple-cursors
 set which-key
 
-" Disable timeout or increase timeout length
+" Disable timeout for better which-key experience
 set notimeout
-" Alternatively, you can use:
-" set timeoutlen=5000
 
 " Key mappings
 " Commentary
 noremap <leader>/ :action CommentByLineComment<CR>
-
-" EasyMotion
-map <leader>w <Plug>(easymotion-w)
 
 " IDE actions
 map <leader>ru <Action>(Run)
@@ -44,7 +38,6 @@ map <leader>fu <Action>(FindUsages)
 map <leader>ff <Action>(GotoFile)
 map <leader>fc <Action>(GotoClass)
 map <leader>fs <Action>(GotoSymbol)
-map <leader>x <Action>(CloseContent)
 map <leader>o <Action>(FileStructurePopup)
 
 " Reformat current line
@@ -63,7 +56,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 " Redo
-map U <C-R>
+nnoremap U <C-R>
 
 " Quick edit and reload of .ideavimrc
 nnoremap <leader>vv :e ~/.ideavimrc<CR>
@@ -93,7 +86,81 @@ nnoremap <leader>[ :action PreviousTab<CR>
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 
 " Better escape
-imap jk <Esc>
+inoremap jk <Esc>
 
 " Go to next error
 nnoremap <S-Space> :action GotoNextError<CR>
+
+" Search everywhere (alternative to double shift)
+nnoremap <leader>se :action SearchEverywhere<CR>
+
+" Find Action (Cmd+Shift+A equivalent)
+nnoremap <leader>a :action GotoAction<CR>
+
+" Terminal
+nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+
+" Recent files (with redraw to ensure immediate display)
+nnoremap <leader>r :action RecentFiles<CR>:redraw<CR>
+
+" Find in path
+nnoremap <leader>fp :action FindInPath<CR>
+
+" Toggle project view (corrected action)
+nnoremap <leader>p :action ActivateProjectToolWindow<CR>
+
+" AceJump (alternative to EasyMotion)
+map <leader>e :action AceAction<CR>
+map <leader>w :action AceTargetAction<CR>
+
+" Refactoring
+map <leader>rf :action Refactorings.QuickListPopupAction<CR>
+
+" Show intention actions
+map <leader>i :action ShowIntentionActions<CR>
+
+" Toggle breakpoint
+map <leader>b :action ToggleLineBreakpoint<CR>
+
+" multicursor
+map <M-n> <A-n>
+map <M-x> <A-x>
+map <M-p> <A-p>
+
+" Create new file
+nnoremap <leader>nf :action NewFile<CR>
+
+" Create new directory
+nnoremap <leader>nd :action NewDir<CR>
+
+" reopen closed tab
+nnoremap <leader>ro :action ReopenClosedTab<CR>
+
+" toggle soft wrap
+nnoremap <leader>sw :action EditorToggleUseSoftWraps<CR>
+
+" Split window
+nnoremap <leader>sv :action SplitVertically<CR>
+nnoremap <leader>sh :action SplitHorizontally<CR>
+
+" Move between splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Increase/decrease split size
+nnoremap <leader>+ :action StretchSplitToRight<CR>
+nnoremap <leader>- :action StretchSplitToLeft<CR>
+
+" Quick documentation
+nnoremap K :action QuickJavaDoc<CR>
+
+" Quick implementation
+nnoremap <leader>qi :action QuickImplementations<CR>
+
+" Show usages
+nnoremap <leader>su :action ShowUsages<CR>
+
+" Optimize imports
+nnoremap <leader>oi :action OptimizeImports<CR>
