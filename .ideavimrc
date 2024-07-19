@@ -20,6 +20,8 @@ set highlightedyank
 set surround
 set which-key
 set easymotion
+set textobj-entire
+set ReplaceWithRegister
 
 " Disable timeout for better which-key experience
 set timeoutlen=500
@@ -151,6 +153,11 @@ nmap cx <Plug>(Exchange)
 xmap X <Plug>(Exchange)
 nmap cxc <Plug>(ExchangeClear)
 nmap cxx <Plug>(ExchangeLine)
+
+" Misc
+" Replace entire buffer with system clipboard contents
+" grae also works for this because of added plugins
+nnoremap <leader>sp ggVG"+p
 
 " NERDTree Mappings
 " o: Open files, directories and bookmarks
