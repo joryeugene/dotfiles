@@ -22,7 +22,7 @@ set which-key
 set easymotion
 
 " Disable timeout for better which-key experience
-set notimeout
+set timeoutlen=500
 
 " Key mappings
 " Commentary
