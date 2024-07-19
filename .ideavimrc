@@ -17,9 +17,9 @@ set NERDTree
 set commentary
 set exchange
 set highlightedyank
-set multiple-cursors
 set surround
 set which-key
+set easymotion
 
 " Disable timeout for better which-key experience
 set notimeout
@@ -29,15 +29,25 @@ set notimeout
 noremap <leader>/ :action CommentByLineComment<CR>
 
 " IDE actions
-map <leader>ru :action Run<CR>
-map <leader>de :action Debug<CR>
-map <leader>st :action Stop<CR>
-map <leader>tb :action ToggleLineBreakpoint<CR>
 map <leader>df :action ToggleDistractionFreeMode<CR>
+map <leader>fa :action GotoAction<CR>
+map <leader>fc :action ReformatCode<CR>
+map <leader>ff :action FindInPath<CR>
+map <leader>hw :action HideAllWindows<CR>
+map <leader>me :action MaximizeEditorInSplit<CR>
+map <leader>oi :action OptimizeImports<CR>
+map <leader>pi :action ParameterInfo<CR>
+map <leader>pm :action TogglePresentationMode<CR>
+map <leader>rr :action ReplaceInPath<CR>
+map <leader>sd :action ShowErrorDescription<CR>
+map <leader>se :action SearchEverywhere<CR>
+map <leader>si :action ShowIntentionActions<CR>
+map <leader>tb :action ToggleLineBreakpoint<CR>
 
 " Navigation
 map <C-o> :action Back<CR>
 map <C-i> :action Forward<CR>
+map <leader>e :action RecentFiles<CR>
 map <leader>gc :action GotoClass<CR>
 map <leader>gd :action GotoDeclaration<CR>
 map <leader>ge :action GotoNextError<CR>
@@ -57,11 +67,16 @@ map <leader>rn :action RenameElement<CR>
 map <leader>rp :action IntroduceParameter<CR>
 map <leader>rv :action IntroduceVariable<CR>
 
+" Run and Debug
+map <leader>de :action Debug<CR>
+map <leader>ru :action Run<CR>
+map <leader>st :action Stop<CR>
+
 " Windows and splits
-map <leader>sv :action SplitVertically<CR>
-map <leader>sh :action SplitHorizontally<CR>
 map <leader>sc :action Unsplit<CR>
+map <leader>sh :action SplitHorizontally<CR>
 map <leader>sm :action MoveEditorToOppositeTabGroup<CR>
+map <leader>sv :action SplitVertically<CR>
 map <leader>sw :action EditorToggleUseSoftWraps<CR>
 
 " Move between splits
@@ -75,25 +90,19 @@ map <leader>] :action NextTab<CR>
 map <leader>[ :action PreviousTab<CR>
 
 " Tool windows
-map <leader>tt :action ActivateTerminalToolWindow<CR>
-map <leader>tp :action ActivateProjectToolWindow<CR>
-map <leader>ts :action ActivateStructureToolWindow<CR>
 map <leader>td :action ActivateDebugToolWindow<CR>
+map <leader>tp :action ActivateProjectToolWindow<CR>
+map <leader>pt :action ActivateProjectToolWindow<CR>
 map <leader>tr :action ActivateRunToolWindow<CR>
+map <leader>ts :action ActivateStructureToolWindow<CR>
+map <leader>tt :action ActivateTerminalToolWindow<CR>
 
-" Search and replace
-map <leader>ff :action FindInPath<CR>
-map <leader>rr :action ReplaceInPath<CR>
-
-" Other useful actions
-map <leader>x :action CloseContent<CR>
-map <leader>qq :action CloseAllEditors<CR>
+" Closing tabs and editors
+map <leader>qa :action CloseAllEditors<CR>
 map <leader>qo :action CloseAllEditorsButActive<CR>
-map <leader>si :action ShowIntentionActions<CR>
-map <leader>pi :action ParameterInfo<CR>
-map <leader>sd :action ShowErrorDescription<CR>
-map <leader>hw :action HideAllWindows<CR>
-map <leader>me :action MaximizeEditorInSplit<CR>
+map <leader>qp :action CloseProject<CR>
+map <leader>qt :action CloseActiveTab<CR>
+map <leader>qx :action CloseContent<CR>
 
 " Save
 nnoremap <leader>w :action SaveAll<CR>
@@ -119,19 +128,8 @@ map <leader>vv :action Vcs.QuickListPopupAction<CR>
 " Better escape
 inoremap jk <Esc>
 
-" AceJump
-"map <leader>aj :action AceAction<CR>
-
-" Multicursor
-map <M-n> <A-n>
-map <M-x> <A-x>
-map <M-p> <A-p>
-
 " Quick documentation
 nnoremap K :action QuickJavaDoc<CR>
-
-" Optimize imports
-nnoremap <leader>oi :action OptimizeImports<CR>
 
 " Go to exact window
 nnoremap <leader>1 :action GoToTab1<CR>
@@ -144,60 +142,39 @@ nnoremap <leader>7 :action GoToTab7<CR>
 nnoremap <leader>8 :action GoToTab8<CR>
 nnoremap <leader>9 :action GoToTab9<CR>
 
-" Toggle soft wrap
-nnoremap <leader>tw :action EditorToggleUseSoftWraps<CR>
-
-" Reformat code
-map <leader>fc :action ReformatCode<CR>
-
-" Find action
-nnoremap <leader>fa :action GotoAction<CR>
-
-" Recent files
-nnoremap <leader>e :action RecentFiles<CR>
-
-" Search everywhere
-nnoremap <leader>se :action SearchEverywhere<CR>
-
-" Create new file
+" Create new file/directory
 nnoremap <leader>nf :action NewFile<CR>
-
-" Create new directory
 nnoremap <leader>nd :action NewDir<CR>
 
-" Project tree navigation with hjkl
-map <leader>pt :action ActivateProjectToolWindow<CR>
+" Exchange plugin
+nmap cx <Plug>(Exchange)
+xmap X <Plug>(Exchange)
+nmap cxc <Plug>(ExchangeClear)
+nmap cxx <Plug>(ExchangeLine)
 
-" Navigation in the navigation bar
-nnoremap h <Left>
-nnoremap j <Down>
-nnoremap k <Up>
-nnoremap l <Right>
-
-" NERDTree
-"Key 	Description 	Map Setting
-"o 	Open files, directories and bookmarks 	g:NERDTreeMapActivateNode
-"go 	Open selected file, but leave cursor in the NERDTree 	g:NERDTreeMapPreview
-"t 	Open selected node/bookmark in a new tab 	g:NERDTreeMapOpenInTab
-"T 	Same as 't' but keep the focus on the current tab 	g:NERDTreeMapOpenInTabSilent
-"i 	Open selected file in a split window 	g:NERDTreeMapOpenSplit
-"gi 	Same as i, but leave the cursor on the NERDTree 	g:NERDTreeMapPreviewSplit
-"s 	Open selected file in a new vsplit 	g:NERDTreeMapOpenVSplit
-"gs 	Same as s, but leave the cursor on the NERDTree 	g:NERDTreeMapPreviewVSplit
-"O 	Recursively open the selected directory 	g:NERDTreeMapOpenRecursively
-"x 	Close the current nodes parent 	g:NERDTreeMapCloseDir
-"X 	Recursively close all children of the current node 	g:NERDTreeMapCloseChildren
-"P 	Jump to the root node 	g:NERDTreeMapJumpRoot
-"p 	Jump to current nodes parent 	g:NERDTreeMapJumpParent
-"K 	Jump up inside directories at the current tree depth 	g:NERDTreeMapJumpFirstChild
-"J 	Jump down inside directories at the current tree depth 	g:NERDTreeMapJumpLastChild
-"<C-J> 	Jump down to next sibling of the current directory 	g:NERDTreeMapJumpNextSibling
-"<C-K> 	Jump up to previous sibling of the current directory 	g:NERDTreeMapJumpPrevSibling
-"r 	Recursively refresh the current directory 	g:NERDTreeMapRefresh
-"R 	Recursively refresh the current root 	g:NERDTreeMapRefreshRoot
-"m 	Display the NERDTree menu 	g:NERDTreeMapMenu
-"q 	Close the NERDTree window 	g:NERDTreeMapQuit
-"A 	Zoom (maximize/minimize) the NERDTree window 	g:NERDTreeMapToggleZoom
-"d 	Delete file or directory 	g:NERDTreeMapDelete
-"n 	Create File 	g:NERDTreeMapNewFile
-"N 	Create Directory 	g:NERDTreeMapNewDir
+" NERDTree Mappings
+" o: Open files, directories and bookmarks
+" go: Open selected file, but leave cursor in the NERDTree
+" t: Open selected node/bookmark in a new tab
+" T: Same as 't' but keep the focus on the current tab
+" i: Open selected file in a split window
+" gi: Same as i, but leave the cursor on the NERDTree
+" s: Open selected file in a new vsplit
+" gs: Same as s, but leave the cursor on the NERDTree
+" O: Recursively open the selected directory
+" x: Close the current nodes parent
+" X: Recursively close all children of the current node
+" P: Jump to the root node
+" p: Jump to current nodes parent
+" K: Jump up inside directories at the current tree depth
+" J: Jump down inside directories at the current tree depth
+" <C-J>: Jump down to next sibling of the current directory
+" <C-K>: Jump up to previous sibling of the current directory
+" r: Recursively refresh the current directory
+" R: Recursively refresh the current root
+" m: Display the NERDTree menu
+" q: Close the NERDTree window
+" A: Zoom (maximize/minimize) the NERDTree window
+" d: Delete file or directory
+" n: Create File
+" N: Create Directory
