@@ -178,3 +178,40 @@ nmap cxx <Plug>(ExchangeLine)
 " d: Delete file or directory
 " n: Create File
 " N: Create Directory
+
+" Surround Plugin Mappings
+" ys{motion}{char} - Add surrounding
+" cs{old}{new} - Change surrounding
+" ds{char} - Delete surrounding
+" S{char} - Surround selection (in Visual mode)
+" Examples:
+" ysiw" - Surround word with quotes
+" cs"' - Change double quotes to single quotes
+" ds" - Delete surrounding quotes
+" yst,] - Surround until comma with square brackets
+
+" Other Useful Vim Commands
+" zt - Scroll current line to top of screen
+" zz - Scroll current line to middle of screen
+" zb - Scroll current line to bottom of screen
+" % - Jump to matching brace/bracket/parenthesis
+" * - Search for word under cursor (forward)
+" # - Search for word under cursor (backward)
+" g; - Go to last edit location
+" g, - Go to next edit location
+" gd - Go to local declaration
+" gD - Go to global declaration
+" <C-u> - Scroll up half a page
+" <C-d> - Scroll down half a page
+" :reg - Show registers content
+" "ay - Yank into register a
+" "ap - Paste from register a
+" q{char} - Record macro into register {char}
+" @{char} - Execute macro in register {char}
+" @@ - Repeat last executed macro
+" zo - Open fold under cursor
+" zc - Close fold under cursor
+" zR - Open all folds
+" zM - Close all folds
+" zj - Move to next fold
+" zk - Move to previous fold
