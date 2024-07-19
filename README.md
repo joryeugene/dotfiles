@@ -2,24 +2,13 @@
 
 This repository contains my personal IdeaVim configuration for PyCharm, enhancing the IDE with Vim-like capabilities and custom keybindings for improved productivity.
 
-## Table of Contents
-
-1. [Features](#features)
-2. [Prerequisites](#prerequisites)
-3. [Installation](#installation)
-4. [Key Mappings](#key-mappings)
-5. [Workflow Tips](#workflow-tips)
-6. [Customization](#customization)
-7. [Troubleshooting](#troubleshooting)
-
 ## Features
 
 - Vim-like editing capabilities in PyCharm
 - Custom keybindings for common PyCharm actions
 - Integration with PyCharm-specific features
-- AceJump integration for quick navigation
+- NERDTree for file navigation
 - Enhanced refactoring and code navigation shortcuts
-- Distraction-free coding mode
 
 ## Prerequisites
 
@@ -31,15 +20,14 @@ This repository contains my personal IdeaVim configuration for PyCharm, enhancin
 1. Clone this repository:
 
 2. Create a symbolic link to the `.ideavimrc` file:
-
-   - On macOS/Linux:
-     ```
-     ln -s /path/to/pycharm-ideavim-config/.ideavimrc ~/.ideavimrc
-     ```
-   - On Windows (run in Command Prompt as Administrator):
-     ```
-     mklink /H %USERPROFILE%\.ideavimrc \path\to\pycharm-ideavim-config\.ideavimrc
-     ```
+- On macOS/Linux:
+  ```
+  ln -s /path/to/dotfiles/.ideavimrc ~/.ideavimrc
+  ```
+- On Windows (run in Command Prompt as Administrator):
+  ```
+  mklink /H %USERPROFILE%\.ideavimrc \path\to\dotfiles\.ideavimrc
+  ```
 
 3. Restart PyCharm or reload the `.ideavimrc` file within PyCharm.
 
@@ -47,90 +35,134 @@ This repository contains my personal IdeaVim configuration for PyCharm, enhancin
 
 ### Navigation
 
-- `<leader>e` - AceJump (find character)
-- `<leader>w` - AceJump (word mode)
 - `<C-o>` - Navigate back
 - `<C-i>` - Navigate forward
 - `H` - Move to beginning of line
 - `L` - Move to end of line
+- `<leader>e` - Recent files
+- `<leader>gc` - Go to class
+- `<leader>gd` - Go to declaration
+- `<leader>ge` - Go to next error
+- `<leader>gf` - Go to file
+- `<leader>gi` - Go to implementation
+- `<leader>gp` - Go to previous error
+- `<leader>gs` - Go to symbol
+- `<leader>gt` - Go to test
+- `<leader>gu` - Show usages
 
 ### IDE Actions
 
 - `<leader>ru` - Run
 - `<leader>de` - Debug
-- `<leader>b` - Toggle breakpoint
-- `<leader>gd` - Go to declaration
-- `<leader>gi` - Go to implementation
-- `<leader>fu` - Find usages
-- `<leader>rn` - Rename element
-- `<leader>ff` - Go to file
-- `<leader>fc` - Go to class
-- `<leader>fs` - Go to symbol
-- `<leader>o` - File structure popup
+- `<leader>st` - Stop
+- `<leader>tb` - Toggle breakpoint
+- `<leader>df` - Toggle distraction-free mode
+- `<leader>fa` - Go to action
+- `<leader>fc` - Reformat code
+- `<leader>ff` - Find in path
+- `<leader>hw` - Hide all windows (non-code panels)
+- `<leader>me` - Maximize editor in split
+- `<leader>oi` - Optimize imports
+- `<leader>pi` - Parameter info
+- `<leader>pm` - Toggle presentation mode
+- `<leader>rr` - Replace in path
+- `<leader>sd` - Show error description
+- `<leader>se` - Search everywhere
+- `<leader>si` - Show intention actions
 
 ### Editing
 
 - `<leader>/` - Comment/uncomment line
-- `<leader>l` - Reformat code
 - `J` (visual mode) - Move selected lines down
 - `K` (visual mode) - Move selected lines up
 - `U` - Redo
 
 ### Windows and Tabs
 
-- `<leader>q` - Close current tab
-- `<leader>qa` - Close all tabs
-- `<leader>qo` - Close other tabs
+- `<leader>qa` - Close all editors
+- `<leader>qo` - Close all editors but active
+- `<leader>qp` - Close project
+- `<leader>qt` - Close active tab
+- `<leader>qx` - Close content
 - `<leader>1-9` - Go to tab 1-9
 - `<leader>]` - Next tab
 - `<leader>[` - Previous tab
-- `<leader>sv` - Split vertically
+- `<leader>sc` - Unsplit
 - `<leader>sh` - Split horizontally
+- `<leader>sm` - Move editor to opposite tab group
+- `<leader>sv` - Split vertically
+- `<leader>sw` - Toggle soft wraps
 - `<C-h/j/k/l>` - Navigate splits
+
+### Tool Windows
+
+- `<leader>td` - Activate debug tool window
+- `<leader>tp` / `<leader>pt` - Activate project tool window
+- `<leader>tr` - Activate run tool window
+- `<leader>ts` - Activate structure tool window
+- `<leader>tt` - Activate terminal tool window
 
 ### Other
 
-- `<leader>z` - Toggle distraction-free mode
+- `<leader>w` - Save all
+- `<leader>ve` - Edit .ideavimrc
+- `<leader>vr` - Reload .ideavimrc
+- `<leader>vv` - Version control quick list
 - `jk` - Escape (insert mode)
-- `<S-Space>` - Go to next error
-- `<leader>se` - Search everywhere
-- `<leader>a` - Find action
-- `<leader>t` - Activate terminal
-- `<leader>r` - Recent files
-- `<leader>fp` - Find in path
-- `<leader>p` - Toggle project view
-- `<leader>rf` - Quick refactoring menu
-- `<leader>i` - Show intention actions
-- `<leader>nf` - Create new file
-- `<leader>nd` - Create new directory
-- `<leader>ro` - Reopen closed tab
-- `<leader>sw` - Toggle soft wrap
 - `K` - Quick documentation
-- `<leader>qi` - Quick implementation
-- `<leader>su` - Show usages
-- `<leader>oi` - Optimize imports
+- `<leader>nf` - New file
+- `<leader>nd` - New directory
 
-## Workflow Tips
+### Refactoring
 
-1. **Quick Navigation**: Use AceJump (`<leader>e` or `<leader>w`) for rapid movement within a file.
+- `<leader>re` - Refactoring quick list
+- `<leader>rf` - Introduce field
+- `<leader>ri` - Inline
+- `<leader>rm` - Extract method
+- `<leader>rn` - Rename element
+- `<leader>rp` - Introduce parameter
+- `<leader>rv` - Introduce variable
 
-2. **Efficient Refactoring**: Utilize `<leader>rn` for renaming and `<leader>rf` for quick access to refactoring options.
+### Plugins
 
-3. **Seamless Debugging**: Set breakpoints with `<leader>b` and start debugging with `<leader>de`.
+- NERDTree: Use for file navigation (see NERDTree section for mappings)
+- Exchange: Use `cx{motion}` to mark and exchange text
+- Surround: Use `ys`, `cs`, and `ds` for surrounding operations
+- Commentary: Use `gc` for commenting operations
+- Which-Key: Provides a popup menu of available keybindings
 
-4. **Code Exploration**: Use `<leader>gd` for go to definition, `<leader>fu` for find usages, and `K` for quick documentation.
+## NERDTree Mappings
 
-5. **Distraction-Free Coding**: Toggle distraction-free mode with `<leader>z` when you need to focus.
-
-6. **Multi-File Editing**: Use tab navigation (`<leader>1-9`, `<leader>]`, `<leader>[`) and split windows (`<leader>sv`, `<leader>sh`) for efficient multi-file workflows.
+- `o` - Open files, directories and bookmarks
+- `go` - Open selected file, but leave cursor in the NERDTree
+- `t` - Open selected node/bookmark in a new tab
+- `T` - Same as 't' but keep the focus on the current tab
+- `i` - Open selected file in a split window
+- `gi` - Same as i, but leave the cursor on the NERDTree
+- `s` - Open selected file in a new vsplit
+- `gs` - Same as s, but leave the cursor on the NERDTree
+- `O` - Recursively open the selected directory
+- `x` - Close the current nodes parent
+- `X` - Recursively close all children of the current node
+- `P` - Jump to the root node
+- `p` - Jump to current nodes parent
+- `K` - Jump up inside directories at the current tree depth
+- `J` - Jump down inside directories at the current tree depth
+- `<C-J>` - Jump down to next sibling of the current directory
+- `<C-K>` - Jump up to previous sibling of the current directory
+- `r` - Recursively refresh the current directory
+- `R` - Recursively refresh the current root
+- `m` - Display the NERDTree menu
+- `q` - Close the NERDTree window
+- `A` - Zoom (maximize/minimize) the NERDTree window
 
 ## Customization
 
 To customize this configuration:
 
-1. Open the `.ideavimrc` file in PyCharm.
+1. Open the `.ideavimrc` file in PyCharm (leader ve).
 2. Modify existing mappings or add new ones based on your preferences.
-3. Save the file and reload it in PyCharm (`:source ~/.ideavimrc`) or restart PyCharm.
+3. Save the file and reload it in PyCharm (`:source ~/.ideavimrc`) or restart PyCharm (leader vr).
 
 ## Troubleshooting
 
@@ -140,8 +172,6 @@ If you encounter any issues:
 2. Check if your PyCharm version is compatible with the IdeaVim plugin.
 3. Verify that the `.ideavimrc` file is correctly linked and located in your home directory.
 4. Try reloading the `.ideavimrc` file using `:source ~/.ideavimrc` in PyCharm.
-5. If a specific keybinding isn't working, check for conflicts in PyCharm's keymap settings.
+5. If a specific keybinding isn't working, check for conflicts in PyCharm's keymap settings or overloaded <leader> key bindings.
 
 For more help, refer to the [IdeaVim plugin documentation](https://github.com/JetBrains/ideavim) or open an issue in this repository.
-
-
